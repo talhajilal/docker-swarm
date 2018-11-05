@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+ registry_1:
+    image: registry:2
+    volumes:
+        - '/mnt/registry:/var/lib/registry'
+    ports:
+      - '5000:5000'
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 512M
+        reservations:
+         cpus: '0.01'
+         memory: 200M
+
+volumes:
+  registry_vol:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=198.54.124.16,nolock,soft,rw"
+      device: ":/nfs/registry"

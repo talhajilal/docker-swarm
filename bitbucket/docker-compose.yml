@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  bitbucket:
+#    image: atlassian/bitbucket-server:latest
+#    image: atlassian/bitbucket-server:4.14
+    image: registry:5000/atlassian/bitbucket-server:4.14
+    volumes:
+        - '/mnt/docker/atlassian/application-data/bitbucket/shared:/var/atlassian/application-data/bitbucket/shared'
+
+#        - '/mnt/docker/atlassian/application-data/bitbucket/shared/plugins:/var/atlassian/application-data/bitbucket/shared/plugins'
+#        - '/mnt/docker/atlassian/application-data/bitbucket/shared/config:/var/atlassian/application-data/bitbucket/shared/config'
+#        - '/mnt/docker/atlassian/application-data/bitbucket/shared/search:/var/atlassian/application-data/bitbucket/shared/search'
+#        - '/mnt/docker/atlassian/application-data/bitbucket/shared/data:/var/atlassian/application-data/bitbucket/shared/data'
+       
+#        - type: volume
+#          source: bitbucket_vol
+#          target: /var/atlassian/application-data/bitbucket
+#          volume: 
+#            nocopy: true
+    ports:
+      - '80:7990'
+      - '81:7999'
+    deploy:
+      replicas: 2
+#      resources:
+#        limits:
+#          cpus: '0.01'
+#          memory: 512M
+#        reservations:
+#         cpus: '0.01'
+#         memory: 200M
+
+volumes:
+  bitbucket_vol:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=198.54.124.16,nolock,soft,rw"
+      device: ":/nfs/atlassian/application-data/bitbucket"
