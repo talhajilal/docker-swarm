@@ -1,1 +1,2 @@
 docker stack deploy --compose-file docker-compose.yml r
+docker service create   --publish 80:7990 --publish 81:7999 --mount type=volume,volume-opt=o=addr=198.58.124.16,volume-opt=device=:/nfs/docker/atlassian/application-data/bitbucket/shared/,volume-opt=type=nfs,source=vol_collab,target=/var/atlassian/application-data/bitbucket/shared   --name bitbucket registry:5000/atlassian/bitbucket-server:4.14
