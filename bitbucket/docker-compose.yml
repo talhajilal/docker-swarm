@@ -4,7 +4,8 @@ services:
   bitbucket:
 #    image: atlassian/bitbucket-server:latest
 #    image: atlassian/bitbucket-server:4.14
-    image: registry:5000/atlassian/bitbucket-server:4.14
+#    image: registry:5000/atlassian/bitbucket-server:4.14
+    image: registry:5000/bitbucket-health-check:4.13
     volumes:
         - '/mnt/docker/atlassian/application-data/bitbucket/shared:/var/atlassian/application-data/bitbucket/shared'
 

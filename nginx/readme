@@ -1,0 +1,2 @@
+running nginx container. 
+ docker run --name nginx-01 -d -v /opt/nginx/conf.d:/etc/nginx/conf.d -p 80:80 nginx:latest
