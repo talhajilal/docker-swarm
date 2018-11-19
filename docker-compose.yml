@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  jfrog:
+    image: docker.bintray.io/jfrog/artifactory-pro:latest
+    volumes:
+        - '/mnt/jfrog1/artifactory:/var/opt/jfrog/artifactory'
+        - '/mnt/hosts:/etc/hosts'
+    ports:
+      - '8081:8081'
+    deploy:
+      replicas: 3
+#      resources:
+#        limits:
+#          cpus: '0.01'
+#          memory: 1024M
+#        reservations:
+#         cpus: '0.01'
+    environment:
+      - DB_TYPE=postgresql
+      - DB_HOST=96.126.124.241
+      - DB_PORT=5432
+      - DB_USER=artifactory
+      - DB_NAME=artifactory
+      - DB_PASSWORD=password

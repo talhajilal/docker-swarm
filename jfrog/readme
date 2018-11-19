@@ -1,0 +1,20 @@
+docker run   -d --name artifactory-5  -e DB_TYPE=postgresql -e DB_HOST=node2 -e DB_PORT=5432 -e DB_USER=artifactory -e DB_NAME=artifactory -e DB_PASSWORD=password -v /mnt/jfrog1/artifactory:/var/opt/jfrog/artifactory   -p 8081:8081  docker.bintray.io/jfrog/artifactory-pro:latest
+
+
+
+
+# Run service with online command.
+
+
+
+docker service create --mount type=bind,source=/mnt/jfrog1/artifactory,destination=/var/opt/jfrog/artifactory --mount type=bind,source=/mnt/hosts,destination=/etc/hosts  --publish=8081:8081 -e DB_TYPE=postgresql -e DB_HOST=node2 -e DB_PORT=5432  -e DB_USER=artifactory -e DB_NAME=artifactory -e  DB_PASSWORD=password --name jfrog  docker.bintray.io/jfrog/artifactory-pro:latest
+
+
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+# Some testing for jenkins github web hooks.
+
