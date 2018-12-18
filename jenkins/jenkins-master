@@ -1,0 +1,1 @@
+docker service create --name jenkins-master  --mount type=bind,source=/mnt/jenkins-master,destination=/var/jenkins_home --publish=9090:8080 cloudbees/jenkins-enterprise:latest

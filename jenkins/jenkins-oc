@@ -1,0 +1,1 @@
+docker service create --name jenkins-oc --mount type=bind,source=/mnt/jenkins-oc,destination=/var/jenkins_home --publish=9091:8080 cloudbees/jenkins-operations-center:latest
